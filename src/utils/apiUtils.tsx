@@ -14,9 +14,9 @@ interface Config {
 api.interceptors.request.use((config: Config) => {
   config.headers = {
     ...config.headers,
-    TokenCybersoft: TOKEN_CYBERSOFT,
-    Authorization: localStorage.getItem("User")
-      ? `Bearer ${JSON.parse(localStorage.getItem("User") || "").accessToken}`
+    tokenCybersoft: TOKEN_CYBERSOFT,
+    token: localStorage.getItem("USER")
+      ? `${JSON.parse(localStorage.getItem("USER") || "").token}`
       : "",
   };
   return config;
