@@ -1,7 +1,7 @@
 import * as types from "./types";
-import { Action, ServiceState, Service } from "../../../../global/dataTypes";
+import { Action, ServiceState } from "../../../../global/dataTypes";
 
-const initialState: ServiceState<Service> = {
+const initialState: ServiceState = {
   loading: false,
   service: {
     id: 0,
@@ -22,10 +22,7 @@ const initialState: ServiceState<Service> = {
   error: null,
 };
 
-const ServiceReducer = (
-  state = initialState,
-  action: Action
-): ServiceState<Service> => {
+const ServiceReducer = (state = initialState, action: Action): ServiceState => {
   switch (action.type) {
     case types.FETCH_SERVICES_SUCCESS: {
       state.services = action.payload;

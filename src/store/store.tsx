@@ -14,5 +14,4 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
-export type rootState = ReturnType<typeof store.getState>;
 export default store;

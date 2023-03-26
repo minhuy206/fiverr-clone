@@ -1,3 +1,4 @@
+import { Action } from "../../../../global/dataTypes";
 import { simpleActionCreator } from "../../../../utils/actionUtils";
 import api from "../../../../utils/apiUtils";
 import * as types from "./types";
@@ -24,6 +25,8 @@ export const fetchService: any = (id: number) => {
       .catch((error) => dispatch(fetchServiceFail(error)));
   };
 };
-const fetchServiceRequest = () => ({ type: types.FETCH_SERVICE_REQUEST });
+const fetchServiceRequest = (): Action => ({
+  type: types.FETCH_SERVICE_REQUEST,
+});
 const fetchServiceSuccess = simpleActionCreator(types.FETCH_SERVICE_SUCCESS);
 const fetchServiceFail = simpleActionCreator(types.FETCH_SERVICE_FAIL);

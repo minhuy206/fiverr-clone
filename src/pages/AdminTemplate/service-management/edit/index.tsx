@@ -6,16 +6,19 @@ import { handleChangeDatePicker, handleSelect } from "../../../../utils/utils";
 import { number, object, string } from "yup";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { rootState } from "../../../../store/store";
 import { fetchService } from "../duck/action";
 import { datePattern } from "../../../../global/regexPattern";
 import dayjs from "dayjs";
 import { DATE_FORMAT } from "../../../../global/constants";
+import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import { rootState } from "../../../../global/dataTypes";
 
 const EditService: React.FC = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { service } = useSelector((state: rootState) => state.ServiceReducer);
+  const { service, loading } = useSelector(
+    (state: rootState) => state.ServiceReducer
+  );
   useEffect(() => {
     dispatch(fetchService(id));
   }, [id]);
@@ -47,6 +50,10 @@ const EditService: React.FC = () => {
         });
     },
   });
+
+  if (loading) {
+    return <LoadingSpin />;
+  }
 
   return (
     <>

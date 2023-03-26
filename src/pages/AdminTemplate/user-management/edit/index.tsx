@@ -1,13 +1,11 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Alert, Form, Input, Select, DatePicker, message, Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Alert, Form, Input, Select, DatePicker, message } from "antd";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import dayjs from "dayjs";
 import { fetchUser, fetchUsers } from "../duck/action";
-import { rootState } from "../../../../store/store";
 import api from "../../../../utils/apiUtils";
 import { handleChangeDatePicker, handleSelect } from "../../../../utils/utils";
 import {
@@ -17,14 +15,8 @@ import {
   phonePattern,
 } from "../../../../global/regexPattern";
 import { DATE_FORMAT } from "../../../../global/constants";
-const antIcon: ReactNode = (
-  <LoadingOutlined
-    style={{
-      fontSize: 100,
-    }}
-    spin
-  />
-);
+import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import { rootState } from "../../../../global/dataTypes";
 
 const EditUser: React.FC = () => {
   const navigate: any = useNavigate();
@@ -92,18 +84,7 @@ const EditUser: React.FC = () => {
   };
 
   if (loading) {
-    return (
-      <Spin
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-        indicator={antIcon}
-        key="spin"
-      />
-    );
+    return <LoadingSpin />;
   }
 
   return (
