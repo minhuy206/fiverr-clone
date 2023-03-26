@@ -1,3 +1,5 @@
+import store from "../store/store";
+
 export interface User {
   id: number;
   name: string;
@@ -25,6 +27,27 @@ export interface Job {
   saoCongViec: number;
 }
 
+export interface Gig {
+  id: number;
+  congViec: {
+    id: number;
+    tenCongViec: string;
+    danhGia: number;
+    giaTien: number;
+    nguoiTao: number;
+    hinhAnh: string;
+    moTa: string;
+    maChiTietLoaiCongViec: number;
+    moTaNgan: string;
+    saoCongViec: number;
+  };
+  tenLoaiCongViec: string;
+  tenNhomChiTietLoai: string;
+  tenChiTietLoai: string;
+  tenNguoiTao: string;
+  avatar: string;
+}
+
 export interface JobType {
   id: number;
   tenLoaiCongViec: string;
@@ -40,7 +63,7 @@ export interface Service {
 
 export interface Action {
   type: string;
-  payload: any;
+  payload?: any;
 }
 
 export interface LoginModel {
@@ -48,30 +71,38 @@ export interface LoginModel {
   password: string;
 }
 
-export interface AppState<User> {
+export type rootState = ReturnType<typeof store.getState>;
+
+export interface UserState {
   users: User[];
   error: any;
   loading: boolean;
   user: User;
 }
 
-export interface JobState<Job> {
+export interface JobState {
   jobs: Job[];
   error: any;
   loading: boolean;
   job: Job;
 }
 
-export interface JobTypeState<JobType> {
+export interface JobTypeState {
   types: JobType[];
   error: any;
   loading: boolean;
   type: JobType;
 }
 
-export interface ServiceState<Service> {
+export interface ServiceState {
   services: Service[];
   error: any;
   loading: boolean;
   service: Service;
+}
+
+export interface GigState {
+  gigs: Gig[] | null;
+  error: any;
+  loading: boolean;
 }

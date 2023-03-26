@@ -1,18 +1,9 @@
 import { Button, Form, Input, Alert, Space } from "antd";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { LoadingOutlined } from "@ant-design/icons";
-import { Spin } from "antd";
+import LoadingSpin from "../../../components/LoadingSpin/LoadingSpin";
 import { LoginModel } from "../../../global/dataTypes";
 import api from "../../../utils/apiUtils";
-const antIcon = (
-  <LoadingOutlined
-    style={{
-      fontSize: 100,
-    }}
-    spin
-  />
-);
 
 const Login: React.FC = () => {
   const navigate: any = useNavigate();
@@ -62,18 +53,7 @@ const Login: React.FC = () => {
   if (localStorage.getItem("USER")) {
     return <Navigate replace to="/admin" key="/admin" />;
   } else if (loading) {
-    return (
-      <Spin
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-        indicator={antIcon}
-        key="spin"
-      />
-    );
+    return <LoadingSpin />;
   }
 
   return (

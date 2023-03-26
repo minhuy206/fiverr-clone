@@ -1,7 +1,7 @@
 import * as types from "./types";
-import { AppState, Action, User } from "../../../../global/dataTypes";
+import { Action, UserState } from "../../../../global/dataTypes";
 
-const initialState: AppState<User> = {
+const initialState: UserState = {
   loading: false,
   user: {
     id: 0,
@@ -34,7 +34,7 @@ const initialState: AppState<User> = {
   error: null,
 };
 
-const UserReducer = (state = initialState, action: Action): AppState<User> => {
+const UserReducer = (state = initialState, action: Action): UserState => {
   switch (action.type) {
     case types.FETCH_USERS_SUCCESS: {
       state.users = action.payload;

@@ -1,3 +1,4 @@
+import { Action } from "../../../../global/dataTypes";
 import { simpleActionCreator } from "../../../../utils/actionUtils";
 import api from "../../../../utils/apiUtils";
 import * as types from "./types";
@@ -22,6 +23,6 @@ export const fetchJob: any = (id: number) => {
       .catch((error) => dispatch(fetchJobFail(error)));
   };
 };
-const fetchJobRequest = () => ({ type: types.FETCH_JOB_REQUEST });
+const fetchJobRequest = (): Action => ({ type: types.FETCH_JOB_REQUEST });
 const fetchJobSuccess = simpleActionCreator(types.FETCH_JOB_SUCCESS);
 const fetchJobFail = simpleActionCreator(types.FETCH_JOB_SUCCESS);

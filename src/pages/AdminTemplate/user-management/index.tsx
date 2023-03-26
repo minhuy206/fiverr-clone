@@ -5,12 +5,11 @@ import {
   DeleteOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { User } from "../../../global/dataTypes";
+import { rootState, User } from "../../../global/dataTypes";
 import type { ColumnsType } from "antd/es/table";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "./duck/action";
-import { rootState } from "../../../store/store";
 import { removeAccents } from "../../../utils/utils";
 import api from "../../../utils/apiUtils";
 

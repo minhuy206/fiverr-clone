@@ -1,7 +1,7 @@
 import * as types from "./types";
-import { Action, JobState, Job } from "../../../../global/dataTypes";
+import { Action, JobState } from "../../../../global/dataTypes";
 
-const initialState: JobState<Job> = {
+const initialState: JobState = {
   loading: false,
   job: {
     id: 1,
@@ -32,7 +32,7 @@ const initialState: JobState<Job> = {
   error: null,
 };
 
-const JobReducer = (state = initialState, action: Action): JobState<Job> => {
+const JobReducer = (state = initialState, action: Action): JobState => {
   switch (action.type) {
     case types.FETCH_JOBS_SUCCESS: {
       state.jobs = action.payload;

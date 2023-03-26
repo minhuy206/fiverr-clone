@@ -4,17 +4,21 @@ import { useFormik } from "formik";
 import api from "../../../../utils/apiUtils";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJob } from "../duck/action";
-import { rootState } from "../../../../store/store";
 import { useParams } from "react-router-dom";
+import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import { rootState } from "../../../../global/dataTypes";
 const { TextArea } = Input;
 
 const EditJob: React.FC = () => {
   const dispatch: any = useDispatch();
+
   const { id } = useParams();
+
   useEffect(() => {
     dispatch(fetchJob(id));
   }, [id]);
-  const { job } = useSelector((state: rootState) => state.JobReducer);
+
+  const { job, loading } = useSelector((state: rootState) => state.JobReducer);
 
   const formik: any = useFormik({
     enableReinitialize: true,
@@ -41,6 +45,10 @@ const EditJob: React.FC = () => {
         });
     },
   });
+
+  if (loading) {
+    return <LoadingSpin />;
+  }
 
   return (
     <>

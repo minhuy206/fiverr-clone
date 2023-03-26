@@ -2,33 +2,11 @@ import "./App.css";
 import { BrowserRouter, Routes } from "react-router-dom";
 import renderRoutes from "./route";
 import { Suspense } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
-import { Spin } from "antd";
+import LoadingSpin from "./components/LoadingSpin/LoadingSpin";
 
-const antIcon = (
-  <LoadingOutlined
-    style={{
-      fontSize: 100,
-    }}
-    spin
-  />
-);
 function App() {
   return (
-    <Suspense
-      fallback={
-        <Spin
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-          indicator={antIcon}
-          key="spin"
-        />
-      }
-    >
+    <Suspense fallback={<LoadingSpin key={"spin"} />}>
       <BrowserRouter>
         <Routes>{renderRoutes()}</Routes>
       </BrowserRouter>

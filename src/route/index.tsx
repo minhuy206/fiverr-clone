@@ -84,6 +84,16 @@ const routes = [
     path: "DangNhap",
     element: lazy(() => import("../pages/AdminTemplate/login")),
   },
+  {
+    path: "",
+    element: lazy(() => import("../pages/HomeTemplate")),
+    nested: [
+      {
+        path: "search/:tenCongViec",
+        element: lazy(() => import("../pages/HomeTemplate/gigs/Gigs")),
+      },
+    ],
+  },
 ];
 
 const renderRoutes = () => {

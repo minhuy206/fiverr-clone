@@ -1,16 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Button, Space, Table, Input, message, Tag } from "antd";
-import {
-  EditOutlined,
-  DeleteOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { Service } from "../../../global/dataTypes";
+import React, { Fragment, useEffect } from "react";
+import { Button, Space, Table, message, Tag } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { rootState, Service } from "../../../global/dataTypes";
 import type { ColumnsType } from "antd/es/table";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { rootState } from "../../../store/store";
-import { removeAccents } from "../../../utils/utils";
 import api from "../../../utils/apiUtils";
 import { fetchServices } from "./duck/action";
 
@@ -18,7 +12,6 @@ const ServiceManagement: React.FC = () => {
   const dispatch: any = useDispatch();
   const { services } = useSelector((state: rootState) => state.ServiceReducer);
   const navigate: any = useNavigate();
-  const [keyword, setKeyword] = useState("");
   useEffect(() => {
     dispatch(fetchServices());
   }, [dispatch]);
@@ -101,13 +94,7 @@ const ServiceManagement: React.FC = () => {
       width: 100,
     },
   ];
-  const searchedService = services.filter((service) => {
-    // const name: string = removeAccents(service.id);
-    // return (
-    //   name.toLowerCase().indexOf(removeAccents(keyword).toLowerCase()) !== -1
-    // );
-    return 123;
-  });
+
   return (
     <>
       <h1 className="text-center text-4xl mb-5">Quản lí dịch vụ</h1>
@@ -122,17 +109,7 @@ const ServiceManagement: React.FC = () => {
           Thuê dịch vụ
         </Button>
       </Space>
-      <Input
-        size="large"
-        className="mb-5"
-        placeholder="Tìm kiếm tên"
-        onChange={(e: any) => setKeyword(e.target.value)}
-        prefix={<SearchOutlined />}
-      />
-      <Table
-        columns={columns}
-        dataSource={keyword ? searchedService : services}
-      />
+      <Table columns={columns} dataSource={services} />
     </>
   );
 };

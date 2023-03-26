@@ -5,13 +5,16 @@ import api from "../../../../utils/apiUtils";
 import { useParams } from "react-router-dom";
 import { fetchType } from "../duck/action";
 import { useDispatch, useSelector } from "react-redux";
-import { rootState } from "../../../../store/store";
+import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import { rootState } from "../../../../global/dataTypes";
 
 const EditType: React.FC = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchType(id)), [id]);
-  const { type } = useSelector((state: rootState) => state.TypeReducer);
+  const { type, loading } = useSelector(
+    (state: rootState) => state.TypeReducer
+  );
 
   const formik: any = useFormik({
     enableReinitialize: true,
@@ -33,6 +36,10 @@ const EditType: React.FC = () => {
         });
     },
   });
+
+  if (loading) {
+    return <LoadingSpin />;
+  }
 
   return (
     <>
