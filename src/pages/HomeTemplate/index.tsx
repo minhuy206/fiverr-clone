@@ -1,21 +1,20 @@
 import React from "react";
-import { Layout, Menu } from "antd";
-import { Outlet } from "react-router-dom";
+import Banner from "../../_component/Banner";
+import Caroulsel from "../../_component/Carousel";
+import Content from "../../_component/Content";
+import Featured from "../../_component/featured/Featured";
+import Header from "../../_component/Header";
+import Logo from "../../_component/logo";
 
-const { Header, Content, Footer } = Layout;
-
-const HomeTemplate: React.FC = () => {
+export default function HomePage() {
   return (
-    <Layout className="layout">
-      <Header></Header>
-      <Content>
-        <div className="site-layout-content bg-white">
-          <Outlet />
-        </div>
-      </Content>
-      <Footer></Footer>
-    </Layout>
+    <div className="  ">
+      <Header />
+      <Featured />
+      {/* <Banner /> */}
+      <Logo />
+      <Caroulsel />
+      <Content />
+    </div>
   );
-};
-
-export default HomeTemplate;
+}

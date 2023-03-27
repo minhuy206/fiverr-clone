@@ -1,99 +1,85 @@
-import { Avatar } from "antd";
-import { Layout, Menu } from "antd";
-import { Navigate, NavLink, Outlet } from "react-router-dom";
+import React from "react";
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  ShopOutlined,
+  TeamOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Layout, Menu, theme } from "antd";
 
-const { Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
+
+const items: MenuProps["items"] = [
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  AppstoreOutlined,
+  TeamOutlined,
+  ShopOutlined,
+].map((icon, index) => ({
+  key: String(index + 1),
+  icon: React.createElement(icon),
+  label: `nav ${index + 1}`,
+}));
 
 const AdminTemplate: React.FC = () => {
-  if (!localStorage.getItem("USER")) {
-    return <Navigate replace to="/DangNhap" key="/DangNhap" />;
-  }
-  const username: null | string = JSON.parse(localStorage.getItem("USER") || "")
-    .user.name;
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
   return (
     <Layout hasSider>
       <Sider
         style={{
-          margin: "auto 20px auto 20px",
           overflow: "auto",
-          height: "95vh",
+          height: "100vh",
           position: "fixed",
           left: 0,
           top: 0,
           bottom: 0,
-          borderRadius: "20px",
         }}
       >
         <div
           style={{
             height: 32,
-            margin: 24,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
+            margin: 16,
+            background: "rgba(255, 255, 255, 0.2)",
           }}
-        >
-          <Avatar size={40}>{username?.charAt(0)}</Avatar>
-          <span style={{ color: "#fff" }}>{username}</span>
-        </div>
+        />
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={[
-            {
-              key: "QuanLiNguoiDung",
-              label: (
-                <NavLink to={"QuanLiNguoiDung"}>Quản lí người dùng</NavLink>
-              ),
-            },
-            {
-              key: "QuanLiCongViec",
-              label: <NavLink to={"QuanLiCongViec"}>Quản lí công việc</NavLink>,
-            },
-            {
-              key: "QuanLiLoaiCongViec",
-              label: (
-                <NavLink to={"QuanLiLoaiCongViec"}>
-                  Quản lí loại công việc
-                </NavLink>
-              ),
-            },
-            {
-              key: "QuanLiDichVu",
-              label: <NavLink to={"QuanLiDichVu"}>Quản lí dịch vụ</NavLink>,
-            },
-            {
-              key: "Logout",
-              label: (
-                <NavLink
-                  to={"/DangNhap"}
-                  onClick={() => localStorage.removeItem("USER")}
-                >
-                  Đăng xuất
-                </NavLink>
-              ),
-            },
-          ]}
+          items={items}
         />
       </Sider>
-      <Layout className="site-layout" style={{ marginLeft: 240 }}>
-        <Content
-          style={{
-            marginTop: "24px",
-            overflow: "initial",
-          }}
-        >
+      <Layout className="site-layout" style={{ marginLeft: 200 }}>
+        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
           <div
             style={{
               padding: 24,
-              minHeight: "90vh",
-              borderRadius: "20px",
-              backgroundColor: "#fff",
+              textAlign: "center",
+              background: colorBgContainer,
             }}
           >
-            <Outlet />
+            <p>long content</p>
+            {
+              // indicates very long content
+              Array.from({ length: 100 }, (_, index) => (
+                <React.Fragment key={index}>
+                  {index % 20 === 0 && index ? "more" : "..."}
+                  <br />
+                </React.Fragment>
+              ))
+            }
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
