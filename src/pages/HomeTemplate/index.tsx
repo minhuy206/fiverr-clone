@@ -7,13 +7,13 @@ const { Content } = Layout;
 const HomeTemplate: React.FC = () => {
   return (
     <Layout className="layout">
-      <header></header>
+      {/* Header */}
       <Content>
         <div className="site-layout-content bg-white">
           <Outlet />
         </div>
       </Content>
-      <footer></footer>
+      {/* Footer */}
     </Layout>
   );
 };
