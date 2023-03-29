@@ -10,7 +10,7 @@ import { fetchService } from "../duck/action";
 import { datePattern } from "../../../../global/regexPattern";
 import dayjs from "dayjs";
 import { DATE_FORMAT } from "../../../../global/constants";
-import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "../../../../_components/LoadingSpin";
 import { rootState } from "../../../../global/dataTypes";
 
 const EditService: React.FC = () => {

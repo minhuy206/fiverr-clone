@@ -5,7 +5,7 @@ import api from "../../../../utils/apiUtils";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJob } from "../duck/action";
 import { useParams } from "react-router-dom";
-import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "../../../../_components/LoadingSpin";
 import { rootState } from "../../../../global/dataTypes";
 const { TextArea } = Input;
 

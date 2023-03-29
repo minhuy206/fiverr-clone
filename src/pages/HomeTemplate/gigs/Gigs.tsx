@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Gigs.css";
-import GigCard from "../../../components/gigCard/GigCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import type { PaginationProps } from "antd";
 import { Pagination, Switch } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-
 import { fetchGigs } from "./duck/action";
 import { Gig, rootState } from "../../../global/dataTypes";
 import {
@@ -14,18 +12,21 @@ import {
   PAGE_SIZE,
   togglersWrapper,
 } from "../../../global/constants";
-import LoadingSpin from "../../../components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "../../../_components/LoadingSpin";
 import { useParams } from "react-router-dom";
+import GigCard from "../../../_components/GigCard";
 
 function Gigs() {
   const { tenCongViec } = useParams();
+  const dispatch: any = useDispatch();
   useEffect(() => {
     dispatch(fetchGigs(tenCongViec));
   }, [tenCongViec]);
-  const dispatch: any = useDispatch();
-  const { gigs, loading } = useSelector((state: rootState) => state.GigReducer);
+  const { gigs, loading } = useSelector(
+    (state: rootState) => state.GigsReducer
+  );
   const [current, setCurrent] = useState(1);
-  const convertGigsToPages = (pageSize: number) => {
+  const convertGigsToPages = (pageSize: number): Gig[][] => {
     let pages: Gig[][] = [];
     gigs?.reduce(function (page: Gig[], gig, index, gigs) {
       if ((index + 1) % pageSize === 0 || index === gigs.length - 1) {
@@ -37,9 +38,9 @@ function Gigs() {
     }, []);
     return pages;
   };
-  const onChange: PaginationProps["onChange"] = (page) => {
+
+  const onChange: PaginationProps["onChange"] = (page): void => {
     setCurrent(page);
-    console.log(convertGigsToPages(PAGE_SIZE)[current - 1]);
   };
 
   if (loading) {

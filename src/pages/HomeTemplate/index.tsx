@@ -1,19 +1,19 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 const HomeTemplate: React.FC = () => {
   return (
     <Layout className="layout">
-      <Header></Header>
+      <header></header>
       <Content>
         <div className="site-layout-content bg-white">
           <Outlet />
         </div>
       </Content>
-      <Footer></Footer>
+      <footer></footer>
     </Layout>
   );
 };

@@ -1,0 +1,64 @@
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+  width: 100%;
+}
+.ant-tabs-top > .ant-tabs-nav {
+  margin: 0;
+}
+
+.ant-tabs .ant-tabs-tab {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  border: 1px solid #dadbdd;
+  border-left: none;
+  cursor: pointer;
+  flex: 1 1;
+  font-weight: 700;
+  text-align: center;
+  color: #74767e;
+  display: block;
+  font-size: 16px;
+  background-color: #fafafa;
+}
+
+.ant-tabs .ant-tabs-tab:first-child {
+  border-left: 1px solid #dadbdd;
+}
+
+.ant-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin: 0;
+}
+
+.ant-tabs .ant-tabs-tab:hover {
+  color: #74767e;
+}
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active {
+  background-color: #fff;
+  border-bottom: 3px solid #1dbf73;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1dbf73;
+}
+
+.ant-tabs .ant-tabs-content {
+  border: none;
+  padding-top: 32px;
+}
+
+.gig .container .right {
+  border: 1px solid #dadbdd;
+  width: 33.6%;
+
+  height: max-content;
+  max-height: 822px;
+  position: sticky;
+  top: 32px;
+}
+
+@media only screen and (min-width: 900px) {
+  .ant-tabs .ant-tabs-content {
+    border: 1px solid #dadbdd;
+    border-top: none;
+  }
+}

@@ -15,7 +15,7 @@ import {
   phonePattern,
 } from "../../../../global/regexPattern";
 import { DATE_FORMAT } from "../../../../global/constants";
-import LoadingSpin from "../../../../components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "../../../../_components/LoadingSpin";
 import { rootState } from "../../../../global/dataTypes";
 
 const EditUser: React.FC = () => {

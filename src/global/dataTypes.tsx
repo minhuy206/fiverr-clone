@@ -48,6 +48,14 @@ export interface Gig {
   avatar: string;
 }
 
+export interface Review {
+  ngayBinhLuan: string;
+  noiDung: string;
+  saoBinhLuan: number;
+  tenNguoiBinhLuan: string;
+  avatar: string;
+}
+
 export interface JobType {
   id: number;
   tenLoaiCongViec: string;
@@ -70,6 +78,8 @@ export interface LoginModel {
   email: string;
   password: string;
 }
+
+// State
 
 export type rootState = ReturnType<typeof store.getState>;
 
@@ -101,8 +111,31 @@ export interface ServiceState {
   service: Service;
 }
 
-export interface GigState {
+export interface GigsState {
   gigs: Gig[] | null;
   error: any;
   loading: boolean;
+}
+export interface GigState {
+  gig: Gig | null;
+  reviews: Review[] | null;
+  error: any;
+  loading: boolean;
+}
+
+// Prop
+export interface ReviewProps {
+  reviewItem: Review | undefined;
+}
+
+export interface ReviewsProps {
+  reviews: Review[] | null;
+}
+
+export interface TabProps {
+  gig: Gig | null;
+}
+export interface TabPaneProps {
+  gig: Gig | null;
+  quality: string;
 }
