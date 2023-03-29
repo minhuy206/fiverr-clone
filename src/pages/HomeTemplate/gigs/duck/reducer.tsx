@@ -1,13 +1,13 @@
-import { Action, GigState } from "../../../../global/dataTypes";
+import { Action, GigsState } from "../../../../global/dataTypes";
 import * as types from "./types";
 
-const initialState: GigState = {
+const initialState: GigsState = {
   loading: false,
   gigs: null,
   error: null,
 };
 
-const GigReducer = (state = initialState, action: Action): GigState => {
+const GigsReducer = (state = initialState, action: Action): GigsState => {
   switch (action.type) {
     case types.FETCH_GIGS_REQUEST:
       state.loading = true;
@@ -25,4 +25,4 @@ const GigReducer = (state = initialState, action: Action): GigState => {
   }
 };
 
-export default GigReducer;
+export default GigsReducer;

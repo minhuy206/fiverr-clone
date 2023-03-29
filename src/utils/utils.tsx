@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { DATE_FORMAT } from "../global/constants";
 
 export function removeAccents(str: string): string {
   return str
@@ -16,7 +17,7 @@ export const handleSelect = (formik: any, name: string) => {
 
 export const handleChangeDatePicker = (formik: any, name: string) => {
   return (value: any) => {
-    const date = dayjs(value?.$d).format("DD/MM/YYYY");
+    const date = dayjs(value?.$d).format(DATE_FORMAT);
     formik.setFieldValue([name], date);
   };
 };

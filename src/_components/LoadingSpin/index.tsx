@@ -1,4 +1,5 @@
 import { LoadingOutlined } from "@ant-design/icons";
+import { memo } from "react";
 import { Spin } from "antd";
 const antIcon = (
   <LoadingOutlined
@@ -24,4 +25,4 @@ const LoadingSpin = () => {
   );
 };
 
-export default LoadingSpin;
+export default memo(LoadingSpin);

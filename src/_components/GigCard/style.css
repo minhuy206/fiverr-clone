@@ -20,12 +20,14 @@
   gap: 10px;
   height: 54px;
 }
+
 .gigCard .info .user img {
   width: 26px;
   height: 26px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .gigCard .info p {
   margin-top: 5px;
   height: 43px;
@@ -38,10 +40,7 @@
   gap: 5px;
   height: 40px;
 }
-.gigCard .info .star img {
-  height: 14px;
-  width: 14px;
-}
+
 .gigCard .info .star span {
   font-size: 14px;
   font-weight: bold;

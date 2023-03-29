@@ -1,6 +1,6 @@
-import "./GigCard.css";
-import star from "../../assets/star.png";
-import heart from "../../assets/heart.png";
+import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const GigCard = ({ gig }: any) => {
   return (
@@ -28,13 +28,17 @@ const GigCard = ({ gig }: any) => {
               : gig.congViec.tenCongViec}
           </p>
           <div className="star">
-            <img src={star} alt="" />
+            <FontAwesomeIcon
+              icon={faStar}
+              className="text-#ffbe5b"
+              style={{ width: 15 }}
+            />
             <span>{gig.congViec.saoCongViec}</span>
           </div>
         </div>
         <hr />
         <div className="detail">
-          <img src={heart} alt="" />
+          <FontAwesomeIcon icon={faHeart} style={{ width: 15 }} />
           <div className="price">
             <small>STARTING AT</small>
             <span>${gig.congViec.giaTien}</span>
@@ -58,7 +62,7 @@ const GigCard = ({ gig }: any) => {
               <div className="collect-container">
                 <div className="collect-package card-collect">
                   <button className="bg-transparent flex border-none">
-                    <img src={heart} width={16} alt="heart" />
+                    <FontAwesomeIcon icon={faHeart} style={{ width: 15 }} />
                   </button>
                 </div>
               </div>
@@ -74,7 +78,11 @@ const GigCard = ({ gig }: any) => {
               <div className="flex flex-wrap justify-between">
                 <div className="rating-wrapper">
                   <span className="gig-rating text-body-2 font-bold text-#ffbe5b">
-                    <img src={star} alt="star" />
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      className="text-#ffbe5b"
+                      style={{ width: 15 }}
+                    />
                     {gig.congViec.saoCongViec}
                     <span className="ml-0.5 font-normal text-#b5b6ba">
                       {"("}

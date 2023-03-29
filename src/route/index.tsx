@@ -92,6 +92,10 @@ const routes = [
         path: "search/:tenCongViec",
         element: lazy(() => import("../pages/HomeTemplate/gigs/Gigs")),
       },
+      {
+        path: "gig/:id",
+        element: lazy(() => import("../pages/HomeTemplate/gig/gig")),
+      },
     ],
   },
 ];

@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes } from "react-router-dom";
 import renderRoutes from "./route";
 import { Suspense } from "react";
-import LoadingSpin from "./components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "./_components/LoadingSpin";
 
 function App() {
   return (

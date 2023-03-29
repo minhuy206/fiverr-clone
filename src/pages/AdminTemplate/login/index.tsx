@@ -1,7 +1,7 @@
 import { Button, Form, Input, Alert, Space } from "antd";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import LoadingSpin from "../../../components/LoadingSpin/LoadingSpin";
+import LoadingSpin from "../../../_components/LoadingSpin";
 import { LoginModel } from "../../../global/dataTypes";
 import api from "../../../utils/apiUtils";
 
