@@ -8,8 +8,8 @@ const { Panel } = Collapse;
 
 const FAQ: React.FC = () => {
   return (
-    <div className="faq-collapsable is-collapsed">
-      <h2 className="section-title text-xl pb-1.5">FAQ</h2>
+    <div className="faq">
+      <h2 className="text-xl pb-1.5">FAQ</h2>
       <Collapse
         size="large"
         accordion

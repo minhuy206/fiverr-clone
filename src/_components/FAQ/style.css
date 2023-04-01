@@ -1,19 +1,20 @@
-.ant-collapse-ghost > .ant-collapse-item {
+.faq .ant-collapse-ghost > .ant-collapse-item {
   border-bottom: 1px solid #dadbdd;
 }
 
-.ant-collapse > .ant-collapse-item:last-child {
+.faq .ant-collapse > .ant-collapse-item:last-child {
   border-radius: 0;
 }
 
-.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+.faq .ant-collapse > .ant-collapse-item > .ant-collapse-header {
   flex-direction: row-reverse;
   padding: 20px 0;
   color: #62646a;
   font-weight: 600;
 }
 
-.ant-collapse-large
+.faq
+  .ant-collapse-large
   > .ant-collapse-item
   > .ant-collapse-content
   > .ant-collapse-content-box {
