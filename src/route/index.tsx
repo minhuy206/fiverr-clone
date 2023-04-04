@@ -97,7 +97,7 @@ const routes = [
         element: lazy(() => import("../pages/HomeTemplate/gig/gig")),
       },
       {
-        path: "categories",
+        path: "categories/:id",
         element: lazy(
           () => import("../pages/HomeTemplate/categories/Categories")
         ),

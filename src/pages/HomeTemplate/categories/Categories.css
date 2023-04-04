@@ -87,15 +87,11 @@
 }
 
 .most-popular .slide {
-  width: fit-content !important;
+  padding: 6px 8px 6px 0;
 }
 
-.slick-slide {
-  padding: 0 8px;
-}
-
-.most-popular .slick-track .slick-slide:first-child {
-  padding-left: 0;
+.most-popular .slide:last-child {
+  padding-right: 0;
 }
 
 .most-popular .slide:hover a {
