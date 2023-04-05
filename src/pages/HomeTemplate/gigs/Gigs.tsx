@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Gigs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ import { useParams } from "react-router-dom";
 import GigCard from "../../../_components/GigCard";
 import Sticky from "../../../_components/Sticky";
 
-function Gigs() {
+const Gigs: React.FC = () => {
   const { tenCongViec } = useParams();
   const dispatch: any = useDispatch();
   const { gigs, loading } = useSelector(
@@ -140,6 +140,6 @@ function Gigs() {
       </div>
     </div>
   );
-}
+};
 
 export default Gigs;

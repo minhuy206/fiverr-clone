@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { BucketCardProps } from "../../global/dataTypes";
 import "./style.css";
 
-function BucketCard({ detailJobTypeGroup }: BucketCardProps) {
+const BucketCard = ({ detailJobTypeGroup }: BucketCardProps) => {
   return (
     <article className="text-left overflow-visible">
       <div className="bucket-title">
@@ -28,8 +28,8 @@ function BucketCard({ detailJobTypeGroup }: BucketCardProps) {
               key={item?.id}
             >
               <NavLink
-                to={""}
-                className="hover:text-#62646a font-light flex justify-between detailJobTypeGroup?s-center"
+                to={`/search/${item.tenChiTiet}`}
+                className="hover:text-#62646a font-light flex justify-between items-center"
               >
                 <span>{item?.tenChiTiet}</span>
                 <FontAwesomeIcon
@@ -43,6 +43,6 @@ function BucketCard({ detailJobTypeGroup }: BucketCardProps) {
       </div>
     </article>
   );
-}
+};
 
 export default BucketCard;

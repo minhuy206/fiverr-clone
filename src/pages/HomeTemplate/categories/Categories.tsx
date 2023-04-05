@@ -9,13 +9,13 @@ import "./Categories.css";
 import { mostPopulars, relatedLink } from "../../../global/constants";
 import Buckets from "../../../_components/Buckets";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { rootState } from "../../../global/dataTypes";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { fetchDetailJobType } from "./duck/action";
 import LoadingSpin from "../../../_components/LoadingSpin";
 
-const Categories = () => {
+const Categories: React.FC = () => {
   const { id } = useParams();
   const dispatch: any = useDispatch();
   const { detailJobTypes, loading } = useSelector(
@@ -25,25 +25,6 @@ const Categories = () => {
   useEffect(() => {
     dispatch(fetchDetailJobType(id));
   }, [id]);
-
-  // const convertMostPopularsToPages = (pageSize: number): object[][] => {
-  //   let pages: object[][] = [];
-  //   mostPopulars?.reduce(function (
-  //     page: object[],
-  //     mostPopular,
-  //     index,
-  //     mostPopulars
-  //   ) {
-  //     if ((index + 1) % pageSize === 0 || index === mostPopulars.length - 1) {
-  //       page = [...page, mostPopular];
-  //       pages = [...pages, page];
-  //       return (page = []);
-  //     }
-  //     return [...page, mostPopular];
-  //   },
-  //   []);
-  //   return pages;
-  // };
 
   if (loading) {
     return <LoadingSpin />;
@@ -76,13 +57,13 @@ const Categories = () => {
           </div>
         </div>
       </div>
-      <div className="categories-container overflow-hidden">
-        <div className="most-popular mt-12">
+      <div className="most-popular-section mt-12">
+        <div className="categories-container overflow-hidden">
           <div className="most-popular-header mb-4 flex items-center justify-between">
             <h2 className="text-2xl font-semibold">
               Most popular in Graphics & Design
             </h2>
-            <div className="buttons-wrapper flex gap-3 justify-center">
+            <div className="buttons-wrapper gap-3 justify-center hidden">
               <button className="carousel-btn left-arrow">
                 <FontAwesomeIcon icon={faChevronLeft} />
               </button>
@@ -91,30 +72,13 @@ const Categories = () => {
               </button>
             </div>
           </div>
-          {/* <Slider {...settings}>
+          <div className="flex items-center">
             {mostPopulars.map((item) => (
               <div className="slide" key={item.text}>
-                <p className="most-popular-slide box-shadow-z2 p-3 justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="mr-3 w-12 h-12"
-                      src={item.imgSrc}
-                      alt="Minimalist Logo Design"
-                    />
-                    <span className="text-base font-medium mr-3">
-                      {item.text}
-                    </span>
-                  </div>
-                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
-                </p>
-              </div>
-            ))}
-          </Slider> */}
-
-          <div className="flex items-center flex-wrap">
-            {mostPopulars.map((item) => (
-              <div className="slide" key={item.text}>
-                <p className="most-popular-slide box-shadow-z2 p-3 whitespace-nowrap">
+                <NavLink
+                  to={`/search/${item}`}
+                  className="most-popular-slide box-shadow-z2 p-3 whitespace-nowrap"
+                >
                   <img
                     className="mr-3 w-12 h-12"
                     src={item.imgSrc}
@@ -124,7 +88,7 @@ const Categories = () => {
                     {item.text}
                   </span>
                   <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
-                </p>
+                </NavLink>
               </div>
             ))}
           </div>
@@ -133,7 +97,7 @@ const Categories = () => {
       <div className="buckets-section mt-12 mb-14">
         <Buckets detailJobTypes={detailJobTypes?.[0]} />
       </div>
-      <div className="related-link pb-12">
+      <div className="related-link-section pb-12">
         <div className="categories-container">
           <div className="related-links-title ">
             <h4 className="text-xl text-center">
@@ -143,12 +107,13 @@ const Categories = () => {
           <div>
             <ul className="flex items-center mt-8 flex-wrap justify-center">
               {relatedLink.map((item, index) => (
-                <span
-                  className="bg-#efeff0 border-#efeff0 mb-4 mx-1.5 py-1 px-3 text-sm font-medium text-#74767e rounded-full inline-flex items-center justify-center text-center border border-solid"
+                <NavLink
+                  to={`/search/${item}`}
+                  className="bg-#efeff0 border-#efeff0 mb-4 mx-1.5 py-1 px-3 text-sm font-medium text-#74767e rounded-full inline-flex items-center justify-center text-center border border-solid hover:underline"
                   key={index}
                 >
                   <p className="">{item}</p>
-                </span>
+                </NavLink>
               ))}
             </ul>
           </div>

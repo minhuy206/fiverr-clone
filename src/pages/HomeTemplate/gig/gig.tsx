@@ -11,12 +11,12 @@ import Tab from "../../../_components/Tabs";
 import { Breadcrumb } from "antd";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { rootState } from "../../../global/dataTypes";
 import { fetchGig, fetchReviews } from "./duck/action";
 import LoadingSpin from "../../../_components/LoadingSpin";
 
-function Gig() {
+const Gig: React.FC = () => {
   const { id } = useParams();
   const dispatch: any = useDispatch();
   useEffect(() => {
@@ -466,7 +466,7 @@ function Gig() {
               <Tab gig={gig} />
             </div>
             <div className="get-quote py-3 px-6 bg-#fafafa flex flex-col justify-between items-center">
-              <span className="font-semibold mb-4">
+              <span className="font-semibold mb-4 text-center">
                 Do you have any special requirements?
               </span>
               <button className="capitalize w-1/2 rounded cursor-pointer text-sm font-medium py-3 px-6 border border-current text-#62646a hover:bg-#74767e hover:text-white">
@@ -478,6 +478,6 @@ function Gig() {
       </div>
     </div>
   );
-}
+};
 
 export default Gig;

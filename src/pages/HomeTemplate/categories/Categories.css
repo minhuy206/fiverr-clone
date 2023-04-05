@@ -73,7 +73,7 @@
   top: 0;
 }
 
-.most-popular .most-popular-header .carousel-btn {
+.most-popular-section .most-popular-header .carousel-btn {
   background-color: #fff;
   border: 1px solid #e4e5e7;
   border-radius: 50%;
@@ -82,19 +82,20 @@
   width: 32px;
 }
 
-.most-popular .most-popular-header .carousel-btn:hover {
+.most-popular-section .most-popular-header .carousel-btn:hover {
   background-color: #fafafa;
 }
 
-.most-popular .slide {
+.most-popular-section .slide {
   padding: 6px 8px 6px 0;
+  min-width: max-content;
 }
 
-.most-popular .slide:last-child {
+.most-popular-section .slide:last-child {
   padding-right: 0;
 }
 
-.most-popular .slide:hover a {
+.most-popular-section .slide:hover p {
   color: #1dbf73;
 }
 
@@ -163,6 +164,10 @@
 
   .banner .right {
     background-position-x: calc(100% + 94px);
+  }
+
+  .most-popular-section .most-popular-header .buttons-wrapper {
+    display: flex;
   }
 
   .buckets-section {
