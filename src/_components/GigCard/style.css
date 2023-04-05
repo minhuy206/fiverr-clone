@@ -2,9 +2,10 @@
   border: 1px solid #e4e5e7;
 }
 
-.gigCard a {
+.gigCard .image {
   padding-bottom: 60%;
 }
+
 .gigCard .info {
   padding: 0 12px;
 }
@@ -32,35 +33,15 @@
   margin-top: 5px;
   height: 43px;
   line-height: 22px;
-}
-.gigCard .info .star {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 40px;
+  transition: 0.15s ease-in-out;
 }
 
-.gigCard .info .star span {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fbc009;
-}
-.gigCard hr {
-  height: 0;
-  border: 0.5px solid #e4e5e7;
-}
 .gigCard .detail {
+  border-top: 0.5px solid #e4e5e7;
   padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.gigCard .detail img {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  object-fit: cover;
 }
 
 .gigCard .detail .price {
@@ -74,7 +55,6 @@
   color: #74767e;
   display: inline-block;
   font-size: 10px;
-  font-weight: 700;
   letter-spacing: 0.5px;
   padding: 2px 0 0;
   text-transform: uppercase;
@@ -84,11 +64,6 @@
 .gigCard .detail .price span {
   color: #404145;
   padding-left: 6px;
-}
-
-.gigCard .detail .price sup {
-  font-size: 12px;
-  font-weight: 300;
 }
 
 .gig-wrapper .list-view-card {
@@ -111,13 +86,6 @@
   height: 85px;
   width: 142px;
   max-width: 142px !important;
-}
-
-@media screen and (min-width: 320px) {
-  .gig-wrapper .list-view-card header .side-image .gig-image {
-    height: 100%;
-    min-width: 91px;
-  }
 }
 
 .gig-wrapper .list-view-card header .side-image .collect-container {
@@ -143,16 +111,6 @@
   height: 15px;
   width: 15px;
   display: inline-block;
-}
-
-@media (min-width: 320px) {
-  .gig-wrapper .list-view-card footer {
-    display: flex;
-    flex-direction: row;
-    height: 43px;
-    justify-content: space-between;
-    padding-right: 12px;
-  }
 }
 
 .gig-wrapper .list-view-card footer {
@@ -215,4 +173,19 @@
   color: #74767e;
   font-weight: 500;
   line-height: 21px;
+}
+
+@media screen and (min-width: 320px) {
+  .gig-wrapper .list-view-card header .side-image .gig-image {
+    height: 100%;
+    min-width: 91px;
+  }
+
+  .gig-wrapper .list-view-card footer {
+    display: flex;
+    flex-direction: row;
+    height: 43px;
+    justify-content: space-between;
+    padding-right: 12px;
+  }
 }

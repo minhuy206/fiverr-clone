@@ -1,0 +1,21 @@
+@media screen and (min-width: 600px) {
+  .buckets .buckets-container {
+    max-width: 1400px;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
+  .buckets .buckets-container .buckets-header {
+    padding: 0;
+  }
+
+  .buckets .buckets-container .buckets-container-wrapper {
+    display: grid;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .buckets-container-wrapper {
+    column-gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

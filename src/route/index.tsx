@@ -96,6 +96,12 @@ const routes = [
         path: "gig/:id",
         element: lazy(() => import("../pages/HomeTemplate/gig/gig")),
       },
+      {
+        path: "categories/:id",
+        element: lazy(
+          () => import("../pages/HomeTemplate/categories/Categories")
+        ),
+      },
     ],
   },
 ];

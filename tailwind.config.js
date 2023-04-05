@@ -179,6 +179,9 @@ module.exports = {
       "#c4c6c9": "#c4c6c9",
       "#fafafa": "#fafafa",
       "#f74040": "#f74040",
+      "#0b3a23": "#0b3a23",
+      "#f5f5f5": "#f5f5f5",
+      "#efeff0": "#efeff0",
     }),
     columns: {
       auto: "auto",

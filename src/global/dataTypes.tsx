@@ -61,6 +61,29 @@ export interface JobType {
   tenLoaiCongViec: string;
 }
 
+export interface DetailJobType {
+  id: number;
+  tenLoaiCongViec: string;
+  dsNhomChiTietLoai: DetailJobTypeGroup[];
+}
+
+export interface DetailJobTypeGroup {
+  id: number;
+  tenNhom: string;
+  hinhAnh: string;
+  maLoaiCongviec: number;
+  dsChiTietLoai: [
+    {
+      id: number;
+      tenChiTiet: string;
+    },
+    {
+      id: number;
+      tenChiTiet: string;
+    }
+  ];
+}
+
 export interface Service {
   id: number;
   maCongViec: number;
@@ -123,6 +146,12 @@ export interface GigState {
   loading: boolean;
 }
 
+export interface DetailJobTypesState {
+  detailJobTypes: DetailJobType[] | null;
+  loading: boolean;
+  error: any;
+}
+
 // Prop
 export interface ReviewProps {
   reviewItem: Review | undefined;
@@ -138,4 +167,15 @@ export interface TabProps {
 export interface TabPaneProps {
   gig: Gig | null;
   quality: string;
+}
+
+export interface BucketsProps {
+  detailJobTypes: DetailJobType | undefined;
+}
+
+export interface BucketCardProps {
+  detailJobTypeGroup: DetailJobTypeGroup | undefined;
+}
+export interface BucketCollapseProps {
+  detailJobTypeGroup: DetailJobTypeGroup[] | undefined;
 }

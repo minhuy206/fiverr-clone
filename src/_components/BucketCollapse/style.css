@@ -1,0 +1,95 @@
+.buckets-collapse > .ant-collapse-item {
+  padding: 16px 24px 16px;
+  border-bottom: 1px solid #efeff0;
+  border-radius: 0;
+}
+
+.buckets-collapse > .ant-collapse-item:first-child {
+  padding: 0 24px 16px;
+}
+
+.buckets-collapse > .ant-collapse-item-active {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.buckets-collapse > .ant-collapse-item .ant-collapse-header {
+  padding: 0;
+}
+
+.buckets-collapse > .ant-collapse-item > .ant-collapse-header {
+  align-items: center;
+}
+
+.buckets-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-expand-icon {
+  padding-inline-start: 0 !important;
+  width: 14px;
+  height: 14px;
+}
+
+.buckets-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-arrow {
+  color: #747673;
+  transition: 0.2s;
+}
+
+.buckets-collapse
+  .ant-collapse-ghost
+  > .ant-collapse-item
+  > .ant-collapse-content {
+  border-radius: 0;
+}
+
+.buckets-collapse .ant-collapse-item:last-child {
+  border-radius: 0;
+}
+
+.buckets-collapse
+  > .ant-collapse-item
+  > .ant-collapse-content
+  > .ant-collapse-content-box {
+  padding: 0 24px 32px;
+}
+
+.buckets-collapse
+  > .ant-collapse-item
+  > .ant-collapse-content
+  > .ant-collapse-content-box::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), hsla(0, 0%, 77%, 0));
+  height: 16px;
+  border-top: 1px solid #efeff0;
+  content: "";
+  margin-top: -24px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.buckets-collapse
+  > .ant-collapse-item
+  > .ant-collapse-content
+  > .ant-collapse-content-box::after {
+  background: linear-gradient(180deg, hsla(0, 0%, 77%, 0), rgba(0, 0, 0, 0.04));
+  content: "";
+  border-bottom: 1px solid #efeff0;
+
+  height: 32px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.buckets-collapse .item-wrapper:first-child {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 600px) {
+  .buckets-collapse {
+    display: none;
+  }
+}

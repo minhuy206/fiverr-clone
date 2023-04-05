@@ -1,0 +1,6 @@
+export const FETCH_DETAIL_JOB_TYPE_REQUEST =
+  "@DetailJobTypeReducer/FETCH_DETAIL_JOB_TYPE_REQUEST";
+export const FETCH_DETAIL_JOB_TYPE_SUCCESS =
+  "@DetailJobTypeReducer/FETCH_DETAIL_JOB_TYPE_SUCCESS";
+export const FETCH_DETAIL_JOB_TYPE_FAIL =
+  "@DetailJobTypeReducer/FETCH_DETAIL_JOB_TYPE_FAIL";
