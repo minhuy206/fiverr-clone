@@ -85,6 +85,11 @@ const routes = [
     element: lazy(() => import("../pages/AdminTemplate/login")),
   },
   {
+    path: "login",
+    element: lazy(() => import("../pages/HomeTemplate/Login")),
+  },
+
+  {
     path: "",
     element: lazy(() => import("../pages/HomeTemplate")),
     nested: [

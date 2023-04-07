@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Categories.css";
 import { mostPopulars, relatedLink } from "../../../global/constants";
-import Buckets from "../../../_components/Buckets";
+import Buckets from "./../../../_components/buckets/index";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { rootState } from "../../../global/dataTypes";
