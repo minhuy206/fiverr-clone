@@ -107,6 +107,10 @@ const routes = [
           () => import("../pages/HomeTemplate/categories/Categories")
         ),
       },
+      {
+        path: "detail",
+        element: lazy(() => import("../pages/HomeTemplate/DetailUser/")),
+      },
     ],
   },
 ];

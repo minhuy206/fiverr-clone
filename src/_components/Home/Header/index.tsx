@@ -14,7 +14,7 @@ export default function Header() {
             alt="fiverr"
           />
         </div>
-        <ul className="md:flex md:items-center">
+        <ul className="md:flex md:items-center ">
           <li className="mx-4">
             <a href="">Become a Seller</a>
           </li>
@@ -22,7 +22,7 @@ export default function Header() {
             <NavLink to={"/login"}>Sign in</NavLink>
           </li>
           <button
-            className="rounded-md  px-5 py-1 border-2 mx-4
+            className="rounded-md  px-5 py-1 border-2 mx-4 border-green-500/50 hover:bg-green-500/50 hover:text-white
           "
           >
             Join

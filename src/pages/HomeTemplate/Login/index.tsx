@@ -1,6 +1,14 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { actAuthLogin } from "./duck/action";
+import { useNavigate, Navigate } from "react-router-dom";
+import LoadingSpin from "../../../_components/LoadingSpin";
 
 export default function Login() {
+  const dispatch: any = useDispatch();
+  const prop = useSelector((state: any) => state.AuthLoginUserReducer);
+  const naviget = useNavigate();
+
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -8,8 +16,18 @@ export default function Login() {
 
   const handleOnChange = (e: any) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    setState({
+      ...state,
+      [name]: value,
+    });
   };
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    dispatch(actAuthLogin(state, naviget));
+  };
+
+  if (localStorage.getItem("USER")) return <Navigate replace to="/" />;
+  if (prop.loading) return <LoadingSpin />;
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -17,7 +35,7 @@ export default function Login() {
         <h1 className="text-3xl font-semibold text-center text-green-700 underline">
           Sign in
         </h1>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleOnSubmit}>
           <div className="mb-2">
             <label className="block text-sm font-semibold text-gray-800">
               Email
