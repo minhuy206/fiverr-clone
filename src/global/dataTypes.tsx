@@ -179,3 +179,9 @@ export interface BucketCardProps {
 export interface BucketCollapseProps {
   detailJobTypeGroup: DetailJobTypeGroup[] | undefined;
 }
+
+export interface AuthState {
+  loading: boolean;
+  data: any | null;
+  error: any | null;
+}
