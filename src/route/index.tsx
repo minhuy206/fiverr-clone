@@ -94,6 +94,10 @@ const routes = [
     element: lazy(() => import("../pages/HomeTemplate")),
     nested: [
       {
+        path: "",
+        element: lazy(() => import("../pages/HomeTemplate/home")),
+      },
+      {
         path: "search/:tenCongViec",
         element: lazy(() => import("../pages/HomeTemplate/gigs/Gigs")),
       },

@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+
 export default function Content() {
   return (
     <div className="flex  py-24 px-8 mx-14 ">
