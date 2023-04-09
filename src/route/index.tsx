@@ -112,7 +112,7 @@ const routes = [
         ),
       },
       {
-        path: "detail",
+        path: "detail/:id",
         element: lazy(() => import("../pages/HomeTemplate/DetailUser/")),
       },
     ],
