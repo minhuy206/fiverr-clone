@@ -461,7 +461,7 @@ const Gig: React.FC = () => {
           </div>
         </div>
         <div className="right flex-1 hidden">
-          <div className="sticky top-8">
+          <div className="sticky top-8 pb-8 mb-8">
             <div className="tab mb-4">
               <Tab gig={gig} />
             </div>
