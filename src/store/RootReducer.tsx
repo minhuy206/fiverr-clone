@@ -7,6 +7,7 @@ import GigsReducer from "../pages/HomeTemplate/gigs/duck/reducer";
 import GigReducer from "../pages/HomeTemplate/gig/duck/reducer";
 import DetailJobTypesReducer from "../pages/HomeTemplate/categories/duck/reducer";
 import AuthLoginUserReducer from "./../pages/HomeTemplate/Login/duck/reduce";
+import ActDetailUserReducer from "../pages/HomeTemplate/DetailUser/duck/reducer";
 const rootReducer = combineReducers({
   UserReducer,
   JobReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   GigReducer,
   DetailJobTypesReducer,
   AuthLoginUserReducer,
+  ActDetailUserReducer,
 });
 
 export default rootReducer;

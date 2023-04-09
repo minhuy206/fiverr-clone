@@ -1,8 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 export default function Header() {
+  const userStore: any = localStorage.getItem("USER");
+  const [user, setUser] = useState<any>(JSON.parse(userStore));
+  console.log(user);
+
   return (
-    <header className="absolute inset-x-0 top-0 z-50 sticky  mx-16 ">
+    <header className=" inset-x-0 top-0 z-50 sticky  mx-16 ">
       <nav
         className=" py-5 md:flex md:items-center md:justify-between  bg-transparent
       "
@@ -14,20 +18,34 @@ export default function Header() {
             alt="fiverr"
           />
         </div>
-        <ul className="md:flex md:items-center ">
-          <li className="mx-4">
-            <a href="">Become a Seller</a>
-          </li>
-          <li className="mx-4">
-            <NavLink to={"/login"}>Sign in</NavLink>
-          </li>
-          <button
-            className="rounded-md  px-5 py-1 border-2 mx-4 border-green-500/50 hover:bg-green-500/50 hover:text-white
+        {!user ? (
+          <ul className="md:flex md:items-center ">
+            <li className="mx-4">
+              <a href="">Become a Seller</a>
+            </li>
+            <li className="mx-4">
+              <NavLink to={"/login"}>Sign in</NavLink>
+            </li>
+            <button
+              className="rounded-md  px-5 py-1 border-2 mx-4 border-green-500/50 hover:bg-green-500/50 hover:text-white
           "
-          >
-            Join
-          </button>
-        </ul>
+            >
+              Join
+            </button>
+          </ul>
+        ) : (
+          <>
+            <Link to={`detail/${user.user.id}`}>goodetail</Link>
+            <button
+              onClick={() => {
+                localStorage.clear();
+                setUser(null);
+              }}
+            >
+              Log out
+            </button>
+          </>
+        )}
       </nav>
     </header>
   );

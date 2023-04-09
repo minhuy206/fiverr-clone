@@ -10,9 +10,9 @@ const { Content } = Layout;
 const HomeTemplate: React.FC = () => {
   return (
     <Layout className="layout">
-      <section>
+      <>
         <Header />
-      </section>
+      </>
       <Content>
         <div className="site-layout-content bg-white">
           <Outlet />
