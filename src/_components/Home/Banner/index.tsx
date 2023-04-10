@@ -10,16 +10,16 @@ export default function Banner() {
 
         <div className="py-10">
           <span>Popular:</span>
-          <a className="border-2 px-3 py-2  rounded-full mx-2" href="">
-            Website Design
+          <a className="border-2 px-3 py-2  rounded-full mx-4" href="">
+            Website Design ádasdasd
           </a>
-          <a className="border-2 px-3 py-2  rounded-full mx-2" href="">
+          <a className="border-2 px-3 py-2  rounded-full mx-4" href="">
             WordPress
           </a>
-          <a className="border-2 px-3 py-2  rounded-full mx-2" href="">
+          <a className="border-2 px-3 py-2  rounded-full mx-4" href="">
             Logo Design
           </a>
-          <a className="border-2 px-3 py-2  rounded-full mx-2" href="">
+          <a className="border-2 px-3 py-2  rounded-full mx-4" href="">
             AI Services
           </a>
         </div>

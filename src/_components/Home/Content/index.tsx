@@ -24,40 +24,40 @@ export default function Content() {
               </p>
             </li>
             <li>
-              <h5 className="text-lg font-medium">
+              <h5 className="md:text-lg font-medium">
                 {" "}
                 <AiOutlineCheckCircle
                   style={{ display: "inline", margin: "5px" }}
                 />
                 Quality work done quickly
               </h5>
-              <p className="text-xl font-normal ">
+              <p className="md:text-xl font-normal ">
                 Find the right freelancer to begin working on your project
                 within minutes.
               </p>
             </li>
             <li>
-              <h5 className="text-lg font-medium">
+              <h5 className="md:text-lg font-medium">
                 {" "}
                 <AiOutlineCheckCircle
                   style={{ display: "inline", margin: "5px" }}
                 />
                 Protected payments, every time
               </h5>
-              <p className="text-xl font-normal">
+              <p className="md:text-xl font-normal">
                 Always know what you'll pay upfront. Your payment isn't released
                 until you approve the work.
               </p>
             </li>
             <li>
-              <h5 className="text-lg font-medium">
+              <h5 className="md:text-lg font-medium">
                 {" "}
                 <AiOutlineCheckCircle
                   style={{ display: "inline", margin: "5px" }}
                 />
                 24/7 support
               </h5>
-              <p className="text-xl font-normal">
+              <p className="md:text-xl font-normal">
                 Questions? Our round-the-clock support team is available to help
                 anytime, anywhere.
               </p>
@@ -68,7 +68,7 @@ export default function Content() {
 
       <div
         className="embed-responsive embed-responsive-1by1 relative md:w-1/2
-        overflow-hidden  md:p-10"
+        overflow-hidden  md:p-10 md:items-center"
         style={{ paddingTop: "10" }}
       >
         <iframe

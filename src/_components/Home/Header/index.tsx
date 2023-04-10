@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { AiOutlineUser } from "react-icons/ai";
+
 export default function Header() {
+  const navigate = useNavigate();
   const userStore: any = localStorage.getItem("USER");
   const [user, setUser] = useState<any>(JSON.parse(userStore));
   console.log(user);
@@ -35,15 +38,22 @@ export default function Header() {
           </ul>
         ) : (
           <>
-            <Link to={`detail/${user.user.id}`}>goodetail</Link>
-            <button
-              onClick={() => {
-                localStorage.clear();
-                setUser(null);
-              }}
-            >
-              Log out
-            </button>
+            <div className="items-center">
+              <Link to={`detail/${user.user.id}`}>
+                {" "}
+                <AiOutlineUser style={{ display: "inline" }} /> User
+              </Link>
+              <button
+                className="ml-10"
+                onClick={() => {
+                  localStorage.clear();
+                  setUser(null);
+                  navigate("/");
+                }}
+              >
+                Log out
+              </button>
+            </div>
           </>
         )}
       </nav>

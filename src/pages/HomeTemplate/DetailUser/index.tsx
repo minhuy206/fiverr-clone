@@ -1,8 +1,11 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
+
 import { Layout, Space } from "antd";
 import Side from "./Side";
 const { Header, Footer, Sider, Content } = Layout;
 export default function DetailUser() {
+  if (!localStorage.getItem("USER")) return <Navigate to="/" />;
   return (
     <>
       <Layout>
