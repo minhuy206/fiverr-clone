@@ -17,6 +17,9 @@ export default function Header() {
         <div>
           <img
             className="h-10 inline    cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fiverr_Logo_09.2020.svg/600px-Fiverr_Logo_09.2020.svg.png?20200920230923"
             alt="fiverr"
           />

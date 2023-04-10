@@ -34,7 +34,7 @@ function Featured() {
                 onChange={(e) => setInput(e.target.value)}
               />
               <button
-                className="bg-green-800/60 px-4 py-2"
+                className="bg-green-500/75 px-4 py-2 text-white hover:bg-green-700  "
                 onClick={handleSubmit}
               >
                 Search
