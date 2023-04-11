@@ -28,7 +28,7 @@ export default function Caroulsel() {
     cssEase: "linear",
   };
   return (
-    <div className="mx-16">
+    <div className="mx-16 ">
       <Slider {...settings}>
         <div className="relative">
           <img src={CarouselImg1} alt="" className="h-72" />

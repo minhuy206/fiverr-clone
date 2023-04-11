@@ -11,8 +11,8 @@ import { GrLanguage } from "react-icons/gr";
 export default function Footer() {
   return (
     <footer className="py-24 px-8 mx-14">
-      <div className="flex justify-between pb-14  border-b ">
-        <div>
+      <div className="md:flex flex-row justify-between pb-14  border-b ">
+        <div className="md:row-auto">
           <p className="font-bold pb-4"> Categories</p>
           <p className="cursor-pointer hover:underline pb-4 text-base">
             Graphics & Design
@@ -151,7 +151,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="flex py-10  justify-between items-center">
+      <div className=" md:flex-row    flex py-10  justify-between items-center">
         <div className="opacity-50  grayscale">
           <img
             className="grayscale h-5 inline pr-2"

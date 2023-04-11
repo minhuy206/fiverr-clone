@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { AiOutlineUser } from "react-icons/ai";
+
 export default function Header() {
+  const navigate = useNavigate();
   const userStore: any = localStorage.getItem("USER");
   const [user, setUser] = useState<any>(JSON.parse(userStore));
   console.log(user);
@@ -14,6 +17,9 @@ export default function Header() {
         <div>
           <img
             className="h-10 inline    cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fiverr_Logo_09.2020.svg/600px-Fiverr_Logo_09.2020.svg.png?20200920230923"
             alt="fiverr"
           />
@@ -35,15 +41,22 @@ export default function Header() {
           </ul>
         ) : (
           <>
-            <Link to={`detail/${user.user.id}`}>goodetail</Link>
-            <button
-              onClick={() => {
-                localStorage.clear();
-                setUser(null);
-              }}
-            >
-              Log out
-            </button>
+            <div className="items-center">
+              <Link to={`detail/${user.user.id}`}>
+                {" "}
+                <AiOutlineUser style={{ display: "inline" }} /> User
+              </Link>
+              <button
+                className="ml-10"
+                onClick={() => {
+                  localStorage.clear();
+                  setUser(null);
+                  navigate("/");
+                }}
+              >
+                Log out
+              </button>
+            </div>
           </>
         )}
       </nav>
