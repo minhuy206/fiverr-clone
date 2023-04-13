@@ -5,7 +5,6 @@ import {
   faPlayCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Categories.css";
 import { mostPopulars, relatedLink } from "../../../global/constants";
 import Buckets from "../../../_components/buckets";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +13,7 @@ import { rootState } from "../../../global/dataTypes";
 import React, { useEffect } from "react";
 import { fetchDetailJobType } from "./duck/action";
 import LoadingSpin from "../../../_components/LoadingSpin";
+import "./style.css";
 
 const Categories: React.FC = () => {
   const { id } = useParams();
@@ -76,7 +76,7 @@ const Categories: React.FC = () => {
             {mostPopulars.map((item) => (
               <div className="slide" key={item.text}>
                 <NavLink
-                  to={`/search/${item}`}
+                  to={`/search/${item.text}`}
                   className="most-popular-slide box-shadow-z2 p-3 whitespace-nowrap"
                 >
                   <img

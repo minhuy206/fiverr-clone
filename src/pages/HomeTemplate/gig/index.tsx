@@ -1,4 +1,3 @@
-import "./gig.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -15,6 +14,7 @@ import React, { useEffect } from "react";
 import { rootState } from "../../../global/dataTypes";
 import { fetchGig, fetchReviews } from "./duck/action";
 import LoadingSpin from "../../../_components/LoadingSpin";
+import "./style.css";
 
 const Gig: React.FC = () => {
   const { id } = useParams();
@@ -51,7 +51,7 @@ const Gig: React.FC = () => {
               },
               {
                 title: (
-                  <NavLink to={`/search/${gig?.tenNhomChiTietLoai}` || ""}>
+                  <NavLink to={`/categories/${gig?.tenNhomChiTietLoai}` || ""}>
                     {gig?.tenNhomChiTietLoai}
                   </NavLink>
                 ),

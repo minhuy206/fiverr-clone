@@ -95,7 +95,7 @@
   padding-right: 0;
 }
 
-.most-popular-section .slide:hover p {
+.most-popular-section .slide:hover .most-popular-slide {
   color: #1dbf73;
 }
 

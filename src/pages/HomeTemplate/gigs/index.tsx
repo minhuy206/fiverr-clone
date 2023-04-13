@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "./Gigs.css";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import type { PaginationProps } from "antd";
@@ -7,6 +6,8 @@ import { Pagination, Switch } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGigs } from "./duck/action";
 import { Gig, rootState } from "../../../global/dataTypes";
+import "./style.css";
+
 import {
   floatingMenu,
   PAGE_SIZE,
@@ -54,7 +55,7 @@ const Gigs: React.FC = () => {
     <div className="gigs w-full">
       <div className="gigs-container">
         <h1 className="text-#222325 text-3xl font-semibold md:block hidden">
-          Result for "AI Artists"
+          Result for "{tenCongViec}"
         </h1>
       </div>
       <Sticky className="sticky-wrapper hidden md:block bg-white sticky z-20">
