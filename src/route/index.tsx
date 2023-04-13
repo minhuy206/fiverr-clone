@@ -99,16 +99,16 @@ const routes = [
       },
       {
         path: "search/:tenCongViec",
-        element: lazy(() => import("../pages/HomeTemplate/gigs/Gigs")),
+        element: lazy(() => import("../pages/HomeTemplate/gigs")),
       },
       {
         path: "gig/:id",
-        element: lazy(() => import("../pages/HomeTemplate/gig/gig")),
+        element: lazy(() => import("../pages/HomeTemplate/gig")),
       },
       {
         path: "categories/:id",
         element: lazy(
-          () => import("../pages/HomeTemplate/categories/Categories")
+          () => import("../pages/HomeTemplate/categories")
         ),
       },
       {

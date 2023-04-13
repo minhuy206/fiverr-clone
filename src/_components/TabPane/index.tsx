@@ -3,14 +3,16 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { message } from "antd";
 import dayjs from "dayjs";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DATE_FORMAT } from "../../global/constants";
 import { TabPaneProps } from "../../global/dataTypes";
 import api from "../../utils/apiUtils";
 import "./style.css";
+import { replace } from "formik";
 
 export default function TabPane({ quality, gig }: TabPaneProps) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const handleRent = (): void => {
     if (localStorage.getItem("USER")) {
       api
@@ -27,8 +29,7 @@ export default function TabPane({ quality, gig }: TabPaneProps) {
         .catch((error) => {
           message.error(error.response.data.content);
         });
-    }
-    // mở modal login
+    } else navigate("/login");
   };
 
   return (
