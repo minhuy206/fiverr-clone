@@ -18,6 +18,6 @@ export const handleSelect = (formik: any, name: string) => {
 export const handleChangeDatePicker = (formik: any, name: string) => {
   return (value: any) => {
     const date = dayjs(value?.$d).format(DATE_FORMAT);
-    formik.setFieldValue([name], date);
+    formik.setFieldValue(name, date);
   };
 };

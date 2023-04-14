@@ -8,7 +8,7 @@ import Reviews from "../../../_components/Reviews";
 import FAQ from "../../../_components/FAQ";
 import Tab from "../../../_components/Tabs";
 import { Breadcrumb } from "antd";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { rootState } from "../../../global/dataTypes";
@@ -19,6 +19,7 @@ import "./style.css";
 const Gig: React.FC = () => {
   const { id } = useParams();
   const dispatch: any = useDispatch();
+  const navigate: any = useNavigate();
   useEffect(() => {
     dispatch(fetchGig(id));
     dispatch(fetchReviews(id));
@@ -151,7 +152,12 @@ const Gig: React.FC = () => {
           </div>
           <div className="seller flex flex-col gap-6 mb-8">
             <h2 className="text-xl leading-7">About The Seller</h2>
-            <div className="user flex gap-5">
+            <div
+              className="user flex gap-5"
+              onClick={() => {
+                navigate(`/detail/${gig?.congViec.nguoiTao}`);
+              }}
+            >
               <img
                 src={gig?.avatar}
                 alt={gig?.avatar}
@@ -201,18 +207,6 @@ const Gig: React.FC = () => {
           <div className="reviews mb-16">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-bold text-xl leading-7">Reviews</h2>
-              <div className="text-base">
-                <span className="font-normal flex items-center">
-                  Sort by
-                  <span className="text-#222325 font-bold mx-2">
-                    Most relevant
-                  </span>
-                  <FontAwesomeIcon
-                    className="text-#222325 text-xs"
-                    icon={faChevronDown}
-                  />
-                </span>
-              </div>
             </div>
             <div className="reviews-package">
               <header className="reviews-header breakdown-header relative">
