@@ -31,7 +31,7 @@ const AdminTemplate: React.FC = () => {
             margin: 24,
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            gap: 8,
           }}
         >
           <Avatar size={40}>{username?.charAt(0)}</Avatar>

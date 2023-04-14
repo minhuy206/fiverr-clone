@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGigs } from "./duck/action";
 import { Gig, rootState } from "../../../global/dataTypes";
 import "./style.css";
-
 import {
   floatingMenu,
   PAGE_SIZE,
