@@ -88,6 +88,10 @@ const routes = [
     path: "login",
     element: lazy(() => import("../pages/HomeTemplate/Login")),
   },
+  {
+    path: "register",
+    element: lazy(() => import("../pages/HomeTemplate/Register")),
+  },
 
   {
     path: "",
@@ -107,9 +111,7 @@ const routes = [
       },
       {
         path: "categories/:id",
-        element: lazy(
-          () => import("../pages/HomeTemplate/categories")
-        ),
+        element: lazy(() => import("../pages/HomeTemplate/categories")),
       },
       {
         path: "detail/:id",
