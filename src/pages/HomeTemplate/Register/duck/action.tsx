@@ -11,7 +11,7 @@ export const actRegister = (data: any, naviget: any) => {
       .then((result) => {
         dispath(ActRegisterSuccess(result.data.content));
         localStorage.setItem("USER", JSON.stringify(result.data.content));
-        naviget("-1", { replace: true });
+        naviget(-1, { replace: true });
       })
       .catch((error) => {
         dispath(ActRegisterFail(error));

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import "./Featured.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 
 import MyImg from "./../../../assets/imgs/mman.png";
 
@@ -9,7 +9,7 @@ function Featured() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate(`/gigs?search=${input}`);
+    navigate(`/search/${input}`);
   };
   return (
     <div className="bg-red-300 ">
@@ -43,16 +43,28 @@ function Featured() {
 
             <div className="text-white  font-bold md:invisible sm:invisible lg:visible xl:visible 2xl:visible">
               <span>Popular:</span>
-              <button className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100">
+              <button
+                onClick={() => navigate("categories/web")}
+                className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100"
+              >
                 Web Design
               </button>
-              <button className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100">
+              <button
+                onClick={() => navigate("categories/web")}
+                className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100"
+              >
                 WordPress
               </button>
-              <button className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100">
+              <button
+                onClick={() => navigate("categories/web")}
+                className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100"
+              >
                 Logo Design
               </button>
-              <button className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100">
+              <button
+                onClick={() => navigate("categories/web")}
+                className=" mx-3 border p-2 rounded-full hover:bg-white hover:text-black transition delay-100 duration-100"
+              >
                 AI Services
               </button>
             </div>
