@@ -17,7 +17,9 @@ export default function Reviews({ reviews }: ReviewsProps) {
   const [comment, setComment] = useState({
     id: 0,
     maCongViec: id,
-    maNguoiBinhLuan: JSON.parse(localStorage.getItem("USER") || "")?.user.id,
+    maNguoiBinhLuan: localStorage.getItem("USER")
+      ? JSON.parse(localStorage.getItem("USER") ?? "")?.user.id
+      : "",
     ngayBinhLuan: dayjs(new Date()).format(DATE_FORMAT),
     noiDung: "",
     saoBinhLuan: 5,
@@ -48,42 +50,49 @@ export default function Reviews({ reviews }: ReviewsProps) {
           <ReviewItem reviewItem={reviewItem} key={index} />
         ))}
       </ul>
-      <div className="add-comment mt-10">
-        <div className="flex">
-          <div className="w-12 h-12 rounded-full overflow-hidden mr-4 flex items-center justify-center bg-#e3e5e7 -translate-y-3">
-            {JSON.parse(localStorage.getItem("USER") || "")?.user.avatar ? (
-              <img
-                className="w-full h-full"
-                src={
-                  JSON.parse(localStorage.getItem("USER") || "")?.user.avatar
-                }
-                alt={JSON.parse(localStorage.getItem("USER") || "")?.user.name}
+
+      {localStorage.getItem("USER") ? (
+        <div className="add-comment mt-10">
+          <div className="flex">
+            <div className="w-12 h-12 rounded-full overflow-hidden mr-4 flex items-center justify-center bg-#e3e5e7 -translate-y-3">
+              {JSON.parse(localStorage.getItem("USER") ?? "")?.user.avatar ? (
+                <img
+                  className="w-full h-full"
+                  src={
+                    JSON.parse(localStorage.getItem("USER") ?? "")?.user.avatar
+                  }
+                  alt={
+                    JSON.parse(localStorage.getItem("USER") ?? "")?.user.name
+                  }
+                />
+              ) : (
+                <span className="missing-profile-image text-#b5b6ba">
+                  {JSON.parse(
+                    localStorage.getItem("USER") ?? ""
+                  )?.user.name.charAt(0)}
+                </span>
+              )}
+            </div>
+            <div className="flex-1">
+              <TextArea
+                value={comment.noiDung}
+                rows={6}
+                placeholder="Add your comment"
+                className="text-base placeholder:text-base"
+                onChange={handleChange}
               />
-            ) : (
-              <span className="missing-profile-image text-#b5b6ba">
-                {JSON.parse(
-                  localStorage.getItem("USER") || ""
-                )?.user.name.charAt(0)}
-              </span>
-            )}
-          </div>
-          <div className="flex-1">
-            <TextArea
-              value={comment.noiDung}
-              rows={6}
-              placeholder="Add your comment"
-              className="text-base placeholder:text-base"
-              onChange={handleChange}
-            />
-            <button
-              className="mt-5 px-6 py-3 text-sm font-semibold text-white cursor-pointer bg-#1dbf73 hover:bg-#19a463"
-              onClick={handleComment}
-            >
-              Add comment
-            </button>
+              <button
+                className="mt-5 px-6 py-3 text-sm font-semibold text-white cursor-pointer bg-#1dbf73 hover:bg-#19a463"
+                onClick={handleComment}
+              >
+                Add comment
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
