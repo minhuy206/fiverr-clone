@@ -10,7 +10,7 @@ export const actAuthLogin = (user: any, naviget: any) => {
       .then((result: any) => {
         dispath(AuthLoginSuccess(result.data.content));
         localStorage.setItem("USER", JSON.stringify(result.data.content));
-        naviget("/", { replace: true });
+        naviget("-1", { replace: true });
       })
       .catch((error: any) => {
         dispath(AuthLoginFail(error));

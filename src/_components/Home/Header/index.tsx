@@ -32,17 +32,18 @@ export default function Header() {
             <li className="mx-4">
               <NavLink to={"/login"}>Sign in</NavLink>
             </li>
-            <button
+            <NavLink
+              to={"/register"}
               className="rounded-md  px-5 py-1 border-2 mx-4 border-green-500/50 hover:bg-green-500/50 hover:text-white
           "
             >
               Join
-            </button>
+            </NavLink>
           </ul>
         ) : (
           <>
             <div className="items-center">
-              <Link to={`detail/${user.user.id}`}>
+              <Link to={`detail/${user.id}`}>
                 {" "}
                 <AiOutlineUser style={{ display: "inline" }} /> User
               </Link>
